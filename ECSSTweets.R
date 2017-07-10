@@ -9,10 +9,10 @@ install.packages("wordcloud")
 library(wordcloud)
 
 
-consumer_key <- "im7uqJJQrcH58GH9McQQTFWeg"
-consumer_secret <-"dZyOVcqtH3BEEez19L2H3tetEsgigmkaOUb6YXWNSurXOKwt3a" 
-access_token <- "2863118026-Q3QCaM3cT1sNTZ07rTWrk2iSeY07z05kzX31fXg"
-access_secret <- "OSurDmFRvYGbxOmLoqm8p5cROog8D9D2eX7oFRQxmzEmA"
+consumer_key    <- "insert your"
+consumer_secret <- "insert your"
+access_token    <- "insert your"
+access_secret   <- "insert your"
 setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
 
 
@@ -64,5 +64,3 @@ webshot::install_phantomjs()
 library("htmlwidgets")
 saveWidget(my_graph,"tmp.html",selfcontained = F)
 
-# and in pdf
-webshot("tmp.html","fig_1.pdf", delay =5, vwidth = 2880, vheight=1280)
