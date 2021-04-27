@@ -24,12 +24,15 @@ mach_corpus = Corpus(VectorSource(mach_text))
 
 # create document term matrix applying some transformations
 tdm = TermDocumentMatrix(mach_corpus,
-   control = list(removePunctuation = TRUE,
-   removeNumbers = TRUE, tolower = FALSE,stopwords = TRUE ))
+                         control = list(removePunctuation = TRUE,
+                                        removeNumbers = TRUE, tolower = FALSE,stopwords = TRUE ))
+
 # define tdm as matrix
 m = as.matrix(tdm)
+
 # get word counts in decreasing order
 word_freqs = sort(rowSums(m), decreasing=TRUE) 
+
 # create a data frame with words and their frequencies
 dm = data.frame(word=names(word_freqs), freq=word_freqs)
 dm[1:30,]
@@ -38,6 +41,7 @@ raus <- c("presenting", "amp", "eccs", "presentation", "..." , "work","talk", "g
 dm.clean <- dm[!dm$word %in% raus,]
 dm.clean <- dm.clean[-2,]
 
+# sepcify colors
 blau <- rgb(34, 58, 96, maxColorValue = 250)
 gruen <- rgb(162, 189, 54, maxColorValue = 250)
 braun <- rgb(147, 83, 37, maxColorValue = 250)
@@ -48,13 +52,11 @@ greyy <- rgb(221,221,221, maxColorValue = 250)
 my_graph <- wordcloud2(dm.clean, shape = "cardioid", color = colorVec, backgroundColor = greyy )
 
 
-
 ECSS <- getUser("@ECSS2017")
 location(ECSS)
 ECSS$getFollowersCount() # 800
 
-
-#install webshot
+# install webshot
 install.packages("webshot")
 
 library(webshot)
